@@ -1,5 +1,4 @@
 import React from "react";
-import { FaMapMarkerAlt, FaBed, FaBath, FaRulerCombined, FaTag, FaCalendarAlt, FaTimes } from "react-icons/fa";
 
 interface Property {
     _id: string;
@@ -31,13 +30,12 @@ const PropertyDetailsModal: React.FC<Props> = ({ property, onClose }) => {
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b bg-gradient-to-r from-purple-500 to-purple-600 text-white">
                     <div className="flex items-center gap-3">
-                        <FaMapMarkerAlt className="text-xl" />
                         <div>
                             <h2 className="text-xl font-bold">{property.name}</h2>
-                            <p className="text-purple-100 text-sm flex items-center gap-1"><FaMapMarkerAlt />{property.location}</p>
+                            <p className="text-purple-100 text-sm flex items-center gap-1">{property.location}</p>
                         </div>
                     </div>
-                    <button onClick={onClose} className="text-white/80 hover:text-white transition-colors text-2xl"><FaTimes /></button>
+                    <button onClick={onClose} className="text-white/80 hover:text-white transition-colors text-2xl">✗</button>
                 </div>
                 {/* Images */}
                 <div className="w-full h-64 bg-gray-100 flex overflow-x-auto gap-2 p-2">
@@ -56,11 +54,11 @@ const PropertyDetailsModal: React.FC<Props> = ({ property, onClose }) => {
                 </div>
                 {/* Details Grid */}
                 <div className="grid grid-cols-2 gap-4 p-6">
-                    <div className="flex items-center gap-2 text-lg font-semibold text-purple-700"><FaTag />${property.price?.toLocaleString() || 0}</div>
-                    <div className="flex items-center gap-2 text-lg text-gray-700"><FaBed />{property.beds || 0} Beds</div>
-                    <div className="flex items-center gap-2 text-lg text-gray-700"><FaBath />{property.baths || 0} Baths</div>
-                    <div className="flex items-center gap-2 text-lg text-gray-700"><FaRulerCombined />{property.area || 0} sqft</div>
-                    <div className="flex items-center gap-2 text-sm text-gray-500 col-span-2 mt-2"><FaCalendarAlt />{days === 0 ? 'Today' : days === 1 ? '1 day ago' : `${days} days ago`}</div>
+                    <div className="flex items-center gap-2 text-lg font-semibold text-purple-700">${property.price?.toLocaleString() || 0}</div>
+                    <div className="flex items-center gap-2 text-lg text-gray-700">{property.beds || 0} Beds</div>
+                    <div className="flex items-center gap-2 text-lg text-gray-700">{property.baths || 0} Baths</div>
+                    <div className="flex items-center gap-2 text-lg text-gray-700">{property.area || 0} sqft</div>
+                    <div className="flex items-center gap-2 text-sm text-gray-500 col-span-2 mt-2">{days === 0 ? 'Today' : days === 1 ? '1 day ago' : `${days} days ago`}</div>
                 </div>
                 {/* Description */}
                 <div className="px-6 pb-6">

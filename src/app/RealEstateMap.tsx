@@ -83,15 +83,6 @@ export default function RealEstateMap({
         );
     }
 
-    // Use external PNG as the marker icon
-    const getMarkerIcon = (active: boolean) => new Icon({
-        iconUrl: '/map.svg',
-        iconSize: [48, 48],
-        iconAnchor: [24, 48],
-        popupAnchor: [0, -48],
-        className: "leaflet-div-icon"
-    });
-
     try {
         return (
             <div className="w-full h-full rounded-2xl border border-purple-100 shadow-lg overflow-hidden">
@@ -113,7 +104,7 @@ export default function RealEstateMap({
 
                     {/* Selected location marker */}
                     {selectedLocation && selectedLocation.lat !== 0 && selectedLocation.lng !== 0 && (
-                        <Marker position={[selectedLocation.lat, selectedLocation.lng] as [number, number]} icon={getMarkerIcon(false)}>
+                        <Marker position={[selectedLocation.lat, selectedLocation.lng] as [number, number]} icon={DefaultIcon}>
                             <Popup>
                                 <div>
                                     <h3 className="font-bold">Selected Location</h3>
@@ -134,7 +125,7 @@ export default function RealEstateMap({
                             <Marker
                                 key={property._id}
                                 position={[property.lat, property.lng] as [number, number]}
-                                icon={getMarkerIcon(hoveredId === property._id)}
+                                icon={DefaultIcon}
                                 eventHandlers={{
                                     mouseover: () => setHoveredId(property._id),
                                     mouseout: () => setHoveredId(null),

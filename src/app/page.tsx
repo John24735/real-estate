@@ -1,11 +1,7 @@
 "use client";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
 import { useState, useEffect } from "react";
-import { useMutation, useQuery } from "convex/react";
-import { api } from "@/../convex/_generated/api";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { FaBed, FaBath, FaRulerCombined, FaMapMarkerAlt, FaCalendarAlt, FaTag } from "react-icons/fa";
 import PropertyDetailsModal from "./PropertyDetailsModal";
 
